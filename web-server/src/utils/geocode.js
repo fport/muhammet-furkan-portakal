@@ -11,9 +11,9 @@ const getGeocode = async (url) => {
     }
 }
 
-const geocode = () => {
-    console.log('test');
-    
+const geocode = (city, callback) => {
+    console.log('city',city);
+    return callback(undefined, 'osman')
 }
 
 module.exports = geocode

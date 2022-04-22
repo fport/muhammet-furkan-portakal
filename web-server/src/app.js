@@ -36,6 +36,14 @@ app.get('/test_geocode', (req, res) => {
    
 })
 
+app.get('/test_weather', (req, res) => {
+    const city = 'bursa';
+    weather(city, (err, data) => {
+        res.send(data)
+    })
+   
+})
+
 app.listen(PORT, () => {
     console.log(`Application running on => ${PORT}`)
 })
