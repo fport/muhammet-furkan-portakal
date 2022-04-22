@@ -4,6 +4,10 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// Get Utils
+const geocode = require('./utils/geocode')
+const weather = require('./utils/weather')
+
 app.get('/', (req, res) => {
     res.send('welcome')
 })
@@ -22,6 +26,14 @@ app.get('/test_json', (req, res) => {
         "Adi":"Muhammet Furkan",
         "Soyadi":"Portakal"
     }).json()
+})
+
+app.get('/test_geocode', (req, res) => {
+    const city = 'bursa';
+    geocode(city, (err, data) => {
+        res.send(data)
+    })
+   
 })
 
 app.listen(PORT, () => {
